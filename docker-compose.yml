@@ -1,0 +1,17 @@
+services:
+  mongodb:
+    image: mongo:latest
+    container_name: laptracker_db
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+    networks:
+      - laptracker_network
+
+networks:
+  laptracker_network:
+    driver: bridge
+
+volumes:
+  mongo_data:

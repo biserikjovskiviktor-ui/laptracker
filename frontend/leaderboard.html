@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="mk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lap Tracker - Ранг Листа</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-dark text-light">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-black border-bottom border-secondary mb-4">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-danger" href="#">🏎️ LapTracker</a>
+            <div class="navbar-nav">
+                <a class="nav-link" href="stopwatch.html">Штоперица</a>
+                <a class="nav-link" href="add-vehicle.html">Додај Возило</a>
+                <a class="nav-link" href="add-course.html">Додај Патека</a>
+                <a class="nav-link active" href="leaderboard.html">Табела</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container py-4">
+        <h2 class="text-uppercase fw-bold mb-4">Преглед на Времиња и Патеки</h2>
+
+        <div class="row g-4">
+            <div class="col-lg-8">
+                <div class="card bg-black border border-secondary p-3 h-100 shadow">
+                    <h5 class="fw-bold text-danger text-uppercase mb-3">Најдобри Времиња (Сите Корисници)</h5>
+                    
+                    <div class="mb-3">
+                        <input type="text" class="form-control bg-dark text-white border-secondary" placeholder="Пребарај по патека, возило или возач...">
+                    </div>
+
+                    <div class="table-responsive">
+                        <table class="table table-dark table-striped table-hover align-middle border-secondary">
+                            <thead>
+                                <tr class="text-secondary">
+                                    <th>Возач</th>
+                                    <th>Патека</th>
+                                    <th>Возило</th>
+                                    <th>Време</th>
+                                    <th>Акција</th>
+									<th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="fw-bold">Виктор</td>
+                                    <td>Стрив (Битола)</td>
+                                    <td>Yugo 1.3 EFI</td>
+                                    <td class="text-warning fw-bold">00:01:14.220</td>
+                                    <td><button class="btn btn-sm btn-outline-info">Детали</button></td>
+									<td><a href="stopwatch.html?compete=Igor_BT&time=00:01:10.450" class="btn btn-danger btn-sm fw-bold text-uppercase">⚔️ Пререди го</a></td>
+                                </tr>
+                                <tr>
+                                    <td>Марко</td>
+                                    <td>Плетвар (Прилеп)</td>
+                                    <td>Seat Ibiza</td>
+                                    <td class="text-warning fw-bold">00:02:45.110</td>
+                                    <td><button class="btn btn-sm btn-outline-info">Детали</button></td>
+									<td><a href="stopwatch.html?compete=Igor_BT&time=00:01:10.450" class="btn btn-danger btn-sm fw-bold text-uppercase">⚔️ Пререди го</a></td>
+                                </tr>
+                                <tr>
+                                    <td>Игор</td>
+                                    <td>Водно (Скопје)</td>
+                                    <td>Ford Focus</td>
+                                    <td class="text-warning fw-bold">00:03:12.850</td>
+                                    <td><button class="btn btn-sm btn-outline-info">Детали</button></td>
+									<td><a href="stopwatch.html?compete=Igor_BT&time=00:01:10.450" class="btn btn-danger btn-sm fw-bold text-uppercase">⚔️ Пререди го</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="card bg-black border border-secondary p-3 h-100 shadow">
+                    <h5 class="fw-bold text-danger text-uppercase mb-3">Детален Преглед на Време</h5>
+                    
+                    <div class="bg-secondary p-3 rounded mb-3 text-center">
+                        <h6 class="text-uppercase text-dark fw-bold mb-1">Рекорд на Рунда</h6>
+                        <h2 class="text-warning fw-bold my-1">00:01:14.220</h2>
+                        <small class="text-white-50">Постигнато на: 22.05.2026</small>
+                    </div>
+
+                    <ul class="list-group list-group-flush border-secondary">
+                        <li class="list-group-item bg-transparent text-light border-secondary px-0">
+                            <span class="text-secondary d-block small">Возач</span>
+                            <strong>Виктор</strong>
+                        </li>
+                        <li class="list-group-item bg-transparent text-light border-secondary px-0">
+                            <span class="text-secondary d-block small">Локација / Патека</span>
+                            <strong>Стрив (Битола) - Асфалт</strong>
+                        </li>
+                        <li class="list-group-item bg-transparent text-light border-secondary px-0">
+                            <span class="text-secondary d-block small">Спецификации на Автомобил</span>
+                            <strong>Yugo 1.3 EFI (1998) - 65 HP</strong>
+                        </li>
+                        <li class="list-group-item bg-transparent text-light border-secondary px-0">
+                            <span class="text-info d-block small fw-bold">☀️ Временски Услови во моментот (API Data)</span>
+                            <strong>Суво, 18°C, Влажност 52%</strong>
+                        </li>
+                    </ul>
+
+                    <div class="row g-2 mt-3">
+                        <div class="col-6">
+                            <button class="btn btn-sm btn-outline-warning w-100">Уреди</button>
+                        </div>
+                        <div class="col-6">
+                            <button class="btn btn-sm btn-outline-danger w-100">Избриши</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer class="text-center py-4 border-top border-secondary text-muted bg-black mt-5">
+        <p class="m-0">&copy; 2026 Лап Тракер Апликација</p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="mk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lap Tracker - Уреди / Избриши</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-dark text-light">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-black border-bottom border-secondary mb-4">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-danger" href="#">🏎️ LapTracker</a>
+            <div class="navbar-nav">
+                <a class="nav-link" href="stopwatch.html">Штоперица</a>
+                <a class="nav-link" href="add-vehicle.html">Додај Возило</a>
+                <a class="nav-link" href="add-course.html">Додај Патека</a>
+                <a class="nav-link" href="leaderboard.html">Табела</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                
+                <div class="card bg-black border border-secondary p-4 shadow-lg rounded mb-4">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <h4 class="m-0 fw-bold text-uppercase text-warning">Уреди Податоци за Рунда</h4>
+                        <span class="badge bg-danger text-uppercase">ID: #9482</span>
+                    </div>
+
+                    <form>
+                        <div class="mb-3">
+                            <label class="form-label text-secondary small fw-bold">Патека / Локација</label>
+                            <select class="form-select bg-dark text-white border-secondary">
+                                <option selected>Стрив (Битола)</option>
+                                <option>Плетвар (Прилеп)</option>
+                                <option>Водно (Скопје)</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label text-secondary small fw-bold">Избрано Возило</label>
+                            <select class="form-select bg-dark text-white border-secondary">
+                                <option selected>Yugo 1.3 EFI (1998) - 65 HP</option>
+                                <option>Seat Ibiza (2007) - 105 HP</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-4">
+                            <label class="form-label text-secondary small fw-bold">Постигнато Време (Внеси рачно модификација)</label>
+                            <input type="text" class="form-control bg-dark text-white border-secondary text-center fw-bold text-warning fs-4" value="00:01:14.220">
+                        </div>
+
+                        <div class="d-flex gap-2">
+                            <button type="button" class="btn btn-warning flex-grow-1 fw-bold text-uppercase">Зачувај Промени</button>
+                            <button type="button" class="btn btn-outline-danger fw-bold text-uppercase" data-bs-toggle="modal" data-bs-target="#deleteConfirmationModal">
+                                Избриши Рунда
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="text-center">
+                    <a href="leaderboard.html" class="text-secondary small text-decoration-none">← Назад кон Табела</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="deleteConfirmationModal" tabindex="-1" aria-labelledby="modalTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content bg-black border border-danger text-light shadow-lg">
+                <div class="modal-header border-secondary">
+                    <h5 class="modal-title fw-bold text-danger text-uppercase" id="modalTitle">⚠️ Внимание! Сигурно ли сте?</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center py-4">
+                    <p class="fs-5 mb-2">Дали навистина сакате трајно да го избришете ова време?</p>
+                    <div class="bg-dark p-2 rounded border border-secondary mb-1">
+                        <span class="text-warning fw-bold">Стрив (Битола) — 00:01:14.220</span>
+                    </div>
+                    <small class="text-muted">Оваа акција е неповратна и записот ќе биде отстранет од базата на податоци.</small>
+                </div>
+                <div class="modal-footer border-secondary justify-content-center">
+                    <button type="button" class="btn btn-secondary px-4" data-bs-dismiss="modal">Откажи</button>
+                    <a href="leaderboard.html" class="btn btn-danger px-4 fw-bold">Да, Избриши Трајно</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

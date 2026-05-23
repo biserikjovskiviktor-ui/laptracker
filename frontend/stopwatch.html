@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="mk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lap Tracker - Тркачки Штоперица</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .stopwatch-display {
+            font-family: monospace;
+            font-size: 4.5rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+        .telemetry-display {
+            font-family: monospace;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body class="bg-dark text-light">
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-black border-bottom border-secondary mb-4">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-danger" href="stopwatch.html">🏎️ LapTracker</a>
+            <div class="navbar-nav me-auto">
+                <a class="nav-link active" href="stopwatch.html">Штоперица</a>
+                <a class="nav-link" href="add-vehicle.html">Додај Возило</a>
+                <a class="nav-link" href="add-course.html">Додај Патека</a>
+                <a class="nav-link" href="leaderboard.html">Табела</a>
+                <a class="nav-link" href="search.html">🔍 Пребарај Возачи</a>
+            </div>
+            <div class="navbar-nav">
+                <a class="nav-link fw-bold text-warning" href="profile.html">👤 Мој Профил</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container text-center py-4">
+        
+        <!-- COMPETE MODE ACTIVE BADGE -->
+        <div class="alert alert-warning border-warning bg-black text-warning d-inline-block px-4 py-2 mb-3 rounded-pill fw-bold text-uppercase tracking-wider small animate-pulse">
+            ⚔️ АКТИВЕН МОД: Пререди го Игор_BT
+        </div>
+
+        <h2 class="mb-3 fw-bold text-uppercase">Мерење на Време</h2>
+        <p class="text-secondary">Тркајте се против туѓо време или подобрете го сопствениот рекорд.</p>
+
+        <hr class="border-secondary my-4">
+
+        <!-- Info Grid -->
+        <div class="row g-3 justify-content-center mb-4">
+            <div class="col-md-4">
+                <div class="card bg-secondary text-white p-3 h-100">
+                    <label class="form-label fw-bold">Патека / Локација</label>
+                    <select class="form-select bg-dark text-white border-secondary" disabled>
+                        <!-- Locked to the opponent's track automatically during Compete mode -->
+                        <option selected>Стрив (Битола)</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card bg-secondary text-white p-3 h-100">
+                    <label class="form-label fw-bold">Избери Твое Возило</label>
+                    <select class="form-select bg-dark text-white border-secondary">
+                        <option>Yugo 1.3 EFI (1998) - 65 HP</option>
+                        <option>Seat Ibiza (2007) - 105 HP</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card bg-info text-dark p-3 h-100 fw-bold">
+                    <p class="mb-1">☀️ Моментално Време</p>
+                    <h5 class="m-0 text-uppercase">Суво, 18°C</h5>
+                    <small>Влажност: 52% | Патека: Одлична</small>
+                </div>
+            </div>
+        </div>
+
+        <!-- Timer Panel Split: Live Clock vs Opponent Target -->
+        <div class="bg-black border border-warning rounded p-4 my-4 shadow-lg">
+            <div class="row align-items-center">
+                <!-- Left: Live Clock -->
+                <div class="col-lg-7 border-end border-secondary mb-4 mb-lg-0">
+                    <div class="text-danger small text-uppercase fw-bold mb-1">Тековно Време</div>
+                    <div class="stopwatch-display text-warning my-1">00:01:09.120</div>
+                    <div class="text-muted small">час : мин : сек . мс</div>
+                </div>
+                <!-- Right: Swapped to Opponent Target Instead of Personal Best -->
+                <div class="col-lg-5">
+                    <div class="text-warning small text-uppercase fw-bold mb-1">🎯 Цел за Победа (Игор_BT)</div>
+                    <div class="telemetry-display text-warning my-1">00:01:10.450</div>
+                    <div class="text-muted small">Возило за победување: Seat Ibiza 1.9 TDI</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Action Control Buttons -->
+        <div class="d-grid gap-3 d-sm-flex justify-content-sm-center mb-4">
+            <button class="btn btn-success btn-lg px-5 fw-bold text-uppercase shadow">Старт</button>
+            <button class="btn btn-danger btn-lg px-5 fw-bold text-uppercase shadow">Стоп</button>
+            <a href="stopwatch.html" class="btn btn-outline-secondary btn-sm align-self-center text-uppercase text-decoration-none">Исклучи Дуел ❌</a>
+        </div>
+
+        <!-- Results Summary Box comparing against Opponent -->
+        <div class="row justify-content-center mt-4">
+            <div class="col-md-10">
+                <div class="card bg-black border border-secondary p-4 shadow">
+                    <h5 class="fw-bold text-uppercase text-light mb-3 text-start border-bottom border-secondary pb-2">🏁 Преглед на Дуел</h5>
+                    
+                    <div class="row g-3 text-center">
+                        <div class="col-sm-4">
+                            <div class="bg-secondary p-3 rounded h-100">
+                                <span class="text-dark small fw-bold text-uppercase d-block mb-1">Твое Ново Време</span>
+                                <span class="telemetry-display text-white">00:01:09.120</span>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="bg-secondary p-3 rounded h-100">
+                                <span class="text-dark small fw-bold text-uppercase d-block mb-1">Време на Игор_BT</span>
+                                <span class="telemetry-display text-muted">00:01:10.450</span>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <!-- GREEN because we drove a 1:09.120, which is FASTER than their 1:10.450! -->
+                            <div class="bg-success-subtle border border-success p-3 rounded h-100">
+                                <span class="text-success small fw-bold text-uppercase d-block mb-1">Резултат (Победа!)</span>
+                                <span class="telemetry-display text-success">-00:00:01.330</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="text-end mt-3">
+                        <button class="btn btn-sm btn-outline-success text-uppercase fw-bold">Зачувај и Ажурирај на Табела 🏆</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
