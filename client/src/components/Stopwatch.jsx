@@ -56,8 +56,6 @@ const Stopwatch = () => {
   // 3. Fetch PB & Weather when selection changes
   useEffect(() => {
     if (selected.track && selected.car) {
-      // If we came from the leaderboard with a targetTime, keep it initially. 
-      // Once the user manually changes the car or track, targetTime from location state is ignored and DB is checked.
       if (!targetTime || selected.track !== trackId) {
         fetchPersonalBest(selected.track, selected.car);
       }
@@ -124,7 +122,6 @@ const Stopwatch = () => {
       });
       alert("Резултатот е зачуван!");
       
-      // Re-read and update the personal best immediately after saving
       fetchPersonalBest(selected.track, selected.car);
 
       setResult(null);
@@ -143,7 +140,7 @@ const Stopwatch = () => {
     <div className="container-fluid text-center py-4 text-white">
       <h2 className="mb-3 fw-bold text-uppercase">Мерење на Време</h2>
 
-      <div className="row g-3 justify-content-center mb-4">
+      <div className="row g-3 justify-content-center mb-5">
         <div className="col-md-3">
           <div className="text-white text-uppercase fw-bold mb-1">Track</div>
           <select 
@@ -189,8 +186,8 @@ const Stopwatch = () => {
         </div>
       </div>
       
-      {/* Countdown / Timer Display with Fixed Min-Height Container */}
-      <div style={{ minHeight: '130px' }} className="d-flex flex-column justify-content-center align-items-center my-3">
+      {/* Countdown / Timer Display with Safe Spacing Top */}
+      <div style={{ minHeight: '130px' }} className="d-flex flex-column justify-content-center align-items-center mt-5 mb-4">
         {countdown !== null ? (
           <div className="display-1 fw-bold text-warning">{countdown}</div>
         ) : (
