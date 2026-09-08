@@ -1,0 +1,27 @@
+<div class="container py-5">
+    <h2 class="text-warning mb-4">Додај ново возило</h2>
+    <form id="addVehicleForm" class="card bg-black p-4 border border-secondary mx-auto" style="max-width: 500px;">
+        <div class="mb-3">
+            <label class="form-label text-light">Марка</label>
+            <input type="text" id="make" class="form-control bg-dark text-white" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label text-light">Модел</label>
+            <input type="text" id="model" class="form-control bg-dark text-white" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label text-light">Година</label>
+            <input type="number" id="year" class="form-control bg-dark text-white" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label text-light">Зафатнина на мотор (cc)</label>
+            <input type="number" step="0.1" id="engineDisplacement" class="form-control bg-dark text-white" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label text-light">Коњски сили (HP)</label>
+            <input type="number" id="hp" class="form-control bg-dark text-white" oninput="previewRank(this.value)" required>
+            <div class="mt-2 text-warning">Проценета класа: <span id="rankPreview" class="fw-bold">-</span></div>
+        </div>
+        <button type="submit" class="btn btn-success w-100">Додај возило</button>
+    </form>
+</div>

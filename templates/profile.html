@@ -1,0 +1,43 @@
+<div class="container-fluid py-4">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="card bg-dark text-white p-3 border-warning">
+                <div>
+                    <i class=" bi bi-person-square fa-10x px-5 py-0"></i>
+                </div>
+                <div class="text-center">
+                    <h4 id="userName" class="text-light">Корисник</h4>
+                    <p id="userEmail" class="text-secondary">email@example.com</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-9">
+            <div class="row">
+                <div class="col-md-6">
+                    <h3>Гаража</h3>
+                    <div id="garageList" class="d-flex flex-column gap-2"></div>
+                    <button id="createVehicle" class="btn btn-primary" onclick="loadView('add-vehicle')">Креирај Возило</button>
+                </div>
+                <div class="col-md-6">
+                    <h3>Твои Патеки</h3>
+                    <div id="tracksList" class="d-flex flex-column gap-2"></div>
+                    <button id="createTrack" class="btn btn-primary" onclick="loadView('add-track')">Креирај Патека</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-5">
+        <div class="col-12">
+            <h3>Статистика (Графикон)</h3>
+            <canvas id="performanceChart"></canvas>
+            
+            <h3 class="mt-4">Историја на времиња</h3>
+            <table class="table table-dark table-hover">
+                <thead><tr><th>Патека</th><th>Возило</th><th>Време</th><th>Акции</th></tr></thead>
+                <tbody id="myRunsList"></tbody>
+            </table>
+        </div>
+    </div>
+</div>

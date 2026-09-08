@@ -1,0 +1,38 @@
+<div class="container py-5">
+    <h2 class="text-warning mb-4">Add New Track</h2>
+    <form id="addTrackForm" class="card bg-black p-4 border border-warning mx-auto" style="max-width: 500px;">
+        <div class="mb-3">
+            <label class="form-label text-light">Track Name</label>
+            <input type="text" id="trackName" class="form-control border border-warning bg-dark text-white" required>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label text-light">City</label>
+            <input type="text" id="trackCity" class="form-control border border-warning bg-dark text-white" required>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label text-light">Country</label>
+            <select id="countrySelect" class="form-select border border-warning bg-dark text-white" required>
+                <option value="">Select a country...</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label class="form-label text-light">Length (km)</label>
+            <input type="number" id="trackLength" step="0.01" class="form-control border border-warning bg-dark text-white" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label text-light">Surface</label>
+            <select id="trackSurface" class="form-select border border-warning bg-dark text-white" required>
+                <option value="">Select a surface...</option>
+                <option value="Asphalt">Asphalt</option>
+                <option value="Gravel">Gravel</option>
+                <option value="Sand">Sand</option>
+                <option value="Dirt">Dirt</option>
+                <option value="Ice">Ice</option>
+                <option value="Snow">Snow</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-success w-100">Save Track</button>
+    </form>
+</div>

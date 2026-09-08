@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="mk">
+<head>
+    <meta charset="UTF-8">
+    <title>LapTracker</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" rel="stylesheet">
+</head>
+<body class="bg-dark text-light">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-black border-bottom border-warning">
+        <div class="container">
+            <a class="navbar-brand text-danger" href="#" onclick="loadView('leaderboard')">🏎️ LapTracker</a>
+            <div class="navbar-nav align-items-center">
+                <a class="nav-link" href="#" id="navStopwatch" onclick="loadView('stopwatch')">Стоперица</a>
+                <a class="nav-link" href="#" onclick="loadView('leaderboard')">Табела</a>
+                <a class="nav-link" href="#" id="navProfile" onclick="loadView('profile')" style="display:none;">Профил</a>
+                <a class="nav-link" href="#" id="navAuth" onclick="loadView('auth')">Најава</a>
+                <a class="nav-link" href="#" id="navAdmin" onclick="loadView('db-management')" style="display:none;">Администрација</a>
+                <a class="nav-link" href="#" id="navLogout" onclick="handleLogout()" style="display:none;">Одјава</a>
+            </div>
+            <form class="d-flex ms-3" onsubmit="event.preventDefault();">
+                <input class="form-control form-control-sm bg-dark text-white border-secondary" type="search" id="searchInput" placeholder="Пребарај..." oninput="handleSearch(this.value)">
+            </form>
+        </div>
+    </nav>
+
+    <div id="app" class="container py-4"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+
+    <script src="/js/utils.js" defer></script>
+    <script src="/js/api.js" defer></script>
+    <script src="/js/stopwatch.js" defer></script>
+    <script src="/js/leaderboard.js" defer></script>
+    <script src="/js/ui.js" defer></script>
+    <script src="/js/profile.js" defer></script>
+    <script src="/js/search.js" defer></script>
+    <script src="/js/auth.js" defer></script>
+    <script src="/js/add-track.js" defer></script>
+    <script src="/js/add-vehicle.js" defer></script>
+    <script src="/js/spa.js" defer></script>
+</body>
+</html>
