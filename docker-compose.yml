@@ -1,4 +1,7 @@
+version: '3.8'
+
 services:
+  # 1. Database Service
   mongodb:
     image: mongo:latest
     container_name: laptracker_db
@@ -8,6 +11,37 @@ services:
       - mongo_data:/data/db
     networks:
       - laptracker_network
+
+  # 2. Backend API Service
+  server:
+    build: ./server
+    container_name: laptracker_server
+    ports:
+      - "5000:5000"
+    environment:
+      - MONGO_URI=mongodb://mongodb:27017/laptracker
+      - JWT_SECRET=your_super_complex_random_string_123
+      - ADMIN_KEY=your_secure_admin_password
+    depends_on:
+      - mongodb
+    networks:
+      - laptracker_network
+    volumes:
+      - ./server:/usr/src/app
+      - /usr/src/app/node_modules
+
+  # 3. Frontend Client Service
+  client:
+    build: ./client
+    container_name: laptracker_client
+    ports:
+      - "3000:3000"
+    networks:
+      - laptracker_network
+    volumes:
+      - ./client:/usr/src/app
+      - /usr/src/app/node_modules
+      - /usr/src/app/dist
 
 networks:
   laptracker_network:
